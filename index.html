@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman Dalam Pembuatan</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 90%;
+    }
+
+    .logo {
+      max-width: 250px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #ff6b6b;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    .btn-kembali {
+      display: inline-block;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-kembali:hover {
+      background-color: #0056b3;
+    }
+
+    .clock-box {
+      margin-top: 15px;
+      background-color: #222;
+      color: #0f0;
+      padding: 15px 30px;
+      font-size: 2em;
+      font-family: 'Courier New', monospace;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://i.ibb.co.com/hx2yBRb5/6114123539608093476-121.jpg" alt="Logo" class="logo" />
+    <h1>Halaman Sedang Dalam Pembuatan</h1>
+    <p>Mohon tunggu, admin membuat halaman ini.</p>
+
+    <div class="clock-box" id="clock">00:00:00</div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+      const indonesiaTime = new Date(utc + (3600000 * 7)); // GMT+7
+
+      const hours = indonesiaTime.getHours().toString().padStart(2, '0');
+      const minutes = indonesiaTime.getMinutes().toString().padStart(2, '0');
+      const seconds = indonesiaTime.getSeconds().toString().padStart(2, '0');
+
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
